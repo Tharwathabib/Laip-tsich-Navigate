@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laip-tsich Navigate</title>
+    <link rel="stylesheet" href="Web.css">
+    <link
+        rel="stylesheet"
+        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+        crossorigin="">
+
+</head>
+<body>
+    <!-- Navigation bar (T)-->
+    <nav class="nav">
+        <a class="nav__logo" href="#">Laip-tsich</a>
+        <ul class="nav__links">
+            <li><a href="#map">Map</a></li>
+            <li><a href="#checklist">Checklist</a></li>
+            <li><a href="#hotspot">Hotspot</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+        <a class="nav__cta" href="#signup">Get Updates</a>
+    </nav>
+
+    <!-- Header and subtitle (T)-->
+    <h1 class="title">Laip-tsich Navigate</h1>
+    <h2 class="subtitle">Explore. Connect. Belong.</h2>
+
+
+    <!-- Map (use a placeholder for the moment)-->
+    <section id="map" class="map">
+        <div id="map-canvas" class="map__frame" aria-label="Map of Leipzig"></div>
+    </section>
+
+    <!-- checklist (M)-->
+    <section id="checklist" class="checklist">
+        <h3 class="checklist__title">Arrival Checklist</h3>
+        <ul class="checklist__list">
+            <li><label><input type="checkbox"> Residence permit</label></li>
+            <li><label><input type="checkbox"> City registration</label></li>
+            <li><label><input type="checkbox"> SIM card</label></li>
+            <li><label><input type="checkbox"> Health insurance</label></li>
+        </ul>
+    </section>
+
+
+    <!-- hotspot of the day (M) -->
+
+
+
+
+    <script
+        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+        crossorigin="">
+    </script>
+    <script src="Web.js" defer></script>
+</body>
+</html>
