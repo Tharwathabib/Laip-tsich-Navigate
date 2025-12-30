@@ -33,7 +33,7 @@ body{
 .nav{
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: 1000;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -41,6 +41,11 @@ body{
     padding: 16px 40px;
     background: linear-gradient(90deg, #fff8d6, #e6f0ff);
     border-bottom: 2px solid #005EA8;
+}
+
+/* Offset anchor jumps for the sticky nav */
+section{
+    scroll-margin-top: 96px;
 }
 
 /* Navigation bar logo */
@@ -103,24 +108,170 @@ body{
     margin: 32px 0;
 }
 
+/* Map + sidebar layout */
+.map__layout{
+    width: min(1100px, 94vw);
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) 1fr;
+    gap: 20px;
+    align-items: stretch;
+}
+
+/* Hotspot sidebar card */
+.map__sidebar{
+    border: 2px solid #005EA8;
+    border-radius: 20px;
+    background: #ffffff;
+    padding: 16px;
+    box-shadow: 0 12px 30px rgba(0, 94, 168, 0.1);
+}
+
+/* Sidebar header */
+.map__sidebar-header h3{
+    margin: 0 0 6px;
+    color: #005EA8;
+    font-size: 20px;
+}
+
+.map__sidebar-header p{
+    margin: 0 0 12px;
+    color: #4a4a4a;
+    font-size: 14px;
+}
+
+/* Category filter pills */
+.map__filters{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.map__filter{
+    border: 2px solid #005EA8;
+    background: #fff8d6;
+    color: #005EA8;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 999px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.map__filter.is-active{
+    background: #005EA8;
+    color: #fff;
+}
+
+/* Scrollable hotspot list */
+.map__list{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+    max-height: 360px;
+    overflow-y: auto;
+}
+
+/* Hotspot list item */
+.map__list-item{
+    display: grid;
+    gap: 4px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid #d0e0f2;
+    background: #f9fbff;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map__list-item:hover,
+.map__list-item:focus{
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 94, 168, 0.12);
+}
+
+/* Hotspot list text */
+.map__list-title{
+    font-weight: 700;
+    color: #1b2a41;
+}
+
+.map__list-meta{
+    font-size: 12px;
+    color: #5f6c7b;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Leaflet map frame */
 .map__frame{
-    width: min(900px, 92vw);
-    height: 420px;
+    width: 100%;
+    height: 100%;
+    min-height: 420px;
     border: 3px solid #005EA8;
     border-radius: 24px;
     overflow: hidden;
     background-color: #fff;
 }
 
+/* Marker tint variants for categories */
+.marker--park{
+    filter: hue-rotate(90deg) saturate(140%);
+}
+
+.marker--culture{
+    filter: hue-rotate(220deg) saturate(140%);
+}
+
+.marker--district{
+    filter: hue-rotate(20deg) saturate(140%);
+}
+
+/* Prevent Leaflet zoom controls from collapsing */
+.leaflet-control-zoom{
+    display: flex;
+    flex-direction: column;
+}
+
+.leaflet-control-zoom a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+}
+
+.leaflet-control-zoom a + a{
+    border-top: 1px solid #b7c7e6;
+    margin-top: 0;
+}
+
+/* Stack sidebar above map on smaller screens */
+@media (max-width: 900px){
+    .map__layout{
+        grid-template-columns: 1fr;
+    }
+
+    .map__list{
+        max-height: 220px;
+    }
+}
+
 /* Arrival checklist block */
 .checklist{
-    width: min(700px, 90vw);
+    width: min(1100px, 94vw);
     margin: 24px auto 40px;
     padding: 24px 28px;
     border-radius: 20px;
     border: 2px solid #005EA8;
     background: linear-gradient(135deg, #fff8d6, #e6f0ff);
-    text-align: center;
+    text-align: left;
 }
 
 .checklist__title{
@@ -128,6 +279,7 @@ body{
     font-size: 24px;
     color: #005EA8;
     letter-spacing: 0.5px;
+    text-align: center;
 }
 
 .checklist__list{
