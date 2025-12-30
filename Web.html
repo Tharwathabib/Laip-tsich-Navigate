@@ -30,9 +30,28 @@
     <h2 class="subtitle">Explore. Connect. Belong.</h2>
 
 
-    <!-- Map (use a placeholder for the moment)-->
+    <!-- Map -->
     <section id="map" class="map">
-        <div id="map-canvas" class="map__frame" aria-label="Map of Leipzig"></div>
+        <div class="map__layout">
+            <aside class="map__sidebar" aria-label="Hotspot list">
+                <div class="map__sidebar-header">
+                    <h3>Hotspots</h3>
+                    <p>Tap a place to zoom in.</p>
+                </div>
+                <!-- Filters drive both marker visibility and list display. -->
+                <div class="map__filters" role="group" aria-label="Hotspot filters">
+                    <button class="map__filter is-active" data-filter="all" type="button">All</button>
+                    <button class="map__filter" data-filter="food" type="button">Food</button>
+                    <button class="map__filter" data-filter="shop" type="button">Shops</button>
+                    <button class="map__filter" data-filter="park" type="button">Parks</button>
+                    <button class="map__filter" data-filter="culture" type="button">Culture</button>
+                    <button class="map__filter" data-filter="district" type="button">Districts</button>
+                </div>
+                <!-- Populated by Web.js with hotspot entries. -->
+                <ul class="map__list" id="hotspot-list"></ul>
+            </aside>
+            <div id="map-canvas" class="map__frame" aria-label="Map of Leipzig"></div>
+        </div>
     </section>
 
     <!-- checklist (M)-->
